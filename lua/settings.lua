@@ -6,5 +6,3 @@ vim.o.expandtab = true
 
 vim.o.mouse = 'a'
 
-vim.o.termguicolors = true
-vim.cmd 'colorscheme base16-twilight'
