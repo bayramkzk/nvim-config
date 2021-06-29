@@ -1,5 +1,6 @@
--- GENERAL
-require("settings")
+-- general settings
+require('settings')
 
--- PLUGINS --
-require("plugins")
+-- plugins
+require('plugins')
+
