@@ -15,9 +15,12 @@ return require('packer').startup(function(use)
     use 'nvim-treesitter/nvim-treesitter'
 
     -- Statusline
-    use 'glepnir/galaxyline.nvim'
+    use {
+      'hoob3rt/lualine.nvim',
+      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
 
     -- Colorscheme
-    use 'chriskempson/base16-vim'
+    use 'folke/tokyonight.nvim'
 end)
 

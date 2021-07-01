@@ -1,14 +1,14 @@
 vim.o.termguicolors = true
-local dark_colorscheme = 'base16-twilight'
-local light_colorscheme = 'base16-gruvbox-light-soft'
 
--- set dark or light colorscheme depending on time
+-- Set dark or light colorscheme depending on time
 local current = os.date("*t", os.time())
-local colorscheme = nil
-if current.hour < 19 and current.hour > 7 then
-    colorscheme = light_colorscheme
+local is_day = current.hour <= 18 and current.hour >= 6
+if is_day then
+    vim.g.tokyonight_style = "storm"
 else
-    colorscheme = dark_colorscheme
+    vim.g.tokyonight_style = "night"
 end
-vim.cmd('colorscheme ' .. colorscheme)
+vim.g.tokyonight_style = "day"
+
+vim.cmd[[colorscheme tokyonight]]
 
