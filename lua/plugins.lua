@@ -8,8 +8,16 @@ end
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
 
 return require('packer').startup(function(use)
+    -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+
+    -- Treesitter
     use 'nvim-treesitter/nvim-treesitter'
+
+    -- Statusline
+    use 'glepnir/galaxyline.nvim'
+
+    -- Colorscheme
     use 'chriskempson/base16-vim'
 end)
 
