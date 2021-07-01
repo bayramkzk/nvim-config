@@ -18,6 +18,9 @@ return require('packer').startup(function(use)
     -- Colorscheme
     use 'folke/tokyonight.nvim'
 
+    -- File tree
+    use 'kyazdani42/nvim-tree.lua'
+
     -- Statusline
     use {
         'hoob3rt/lualine.nvim',
@@ -33,4 +36,3 @@ return require('packer').startup(function(use)
     -- LSP
     use 'neovim/nvim-lspconfig'
 end)
-

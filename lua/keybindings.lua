@@ -10,7 +10,7 @@ vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
 
 -- Close current tab
-vim.api.nvim_set_keymap('n', '<A-x>', ':BufferClose<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<S-x>', ':BufferClose<CR>', { noremap = true, silent = true })
 
 -- Switch to next/previous tab
 vim.api.nvim_set_keymap('n', '<TAB>', ':BufferNext<CR>', { noremap = true, silent = true })
@@ -38,4 +38,10 @@ vim.api.nvim_set_keymap('v', '<LEADER>x', '"+x', { noremap = true })
 -- Reselect selected lines after incrementing/decrementing indent level
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
+
+-- Toggle nvim-tree
+vim.api.nvim_set_keymap(
+    'n', '<LEADER>e', ':lua toggle_tree()<CR>',
+    { noremap = true, silent = true }
+)
 
