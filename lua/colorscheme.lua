@@ -8,7 +8,6 @@ if is_day then
 else
     vim.g.tokyonight_style = "night"
 end
-vim.g.tokyonight_style = "day"
 
 vim.cmd[[colorscheme tokyonight]]
 
