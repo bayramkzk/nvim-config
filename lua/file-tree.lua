@@ -23,14 +23,3 @@ vim.g.nvim_tree_icons = {
     }
 }
 
-function toggle_tree()
-    local view = require('nvim-tree.view')
-    local tree = require('nvim-tree')
-
-    if view.win_open() then
-        tree.close()
-    else
-        tree.find_file(true)
-    end
-end
-

@@ -29,6 +29,7 @@ vim.api.nvim_set_keymap('n', '<A-9>', ':BufferGoto 9<CR>', { noremap = true, sil
 
 -- Copy/cut/paste to/from system clipboard
 vim.api.nvim_set_keymap('n', '<LEADER>p', '"+p', { noremap = true })
+vim.api.nvim_set_keymap('v', '<LEADER>p', '"+p', { noremap = true })
 vim.api.nvim_set_keymap('n', '<LEADER>y', '"+yy', { noremap = true })
 vim.api.nvim_set_keymap('v', '<LEADER>y', '"+y', { noremap = true })
 vim.api.nvim_set_keymap('n', '<LEADER>d', '"+dd', { noremap = true })
@@ -40,8 +41,5 @@ vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
 
 -- Toggle nvim-tree
-vim.api.nvim_set_keymap(
-    'n', '<LEADER>e', ':lua toggle_tree()<CR>',
-    { noremap = true, silent = true }
-)
+vim.api.nvim_set_keymap('n', '<LEADER>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
