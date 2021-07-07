@@ -13,3 +13,6 @@ vim.o.mouse = 'a'
 -- Disable showing current mode (e.g -- INSERT --) in the most bottom line
 vim.o.showmode = false
 
+-- Disable wrapping
+vim.o.wrap = false
+
