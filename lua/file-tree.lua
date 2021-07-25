@@ -2,6 +2,9 @@ vim.g.nvim_tree_side = 'right'
 
 vim.g.nvim_tree_width = 40
 
+-- Automatically close nvim-tree when it is the last window
+vim.g.nvim_tree_auto_close = true
+
 vim.g.nvim_tree_icons = {
     default = '',
     symlink = '',
