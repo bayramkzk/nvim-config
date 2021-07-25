@@ -10,7 +10,7 @@ vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
 
 -- Close current tab
-vim.api.nvim_set_keymap('n', '<S-x>', ':BufferClose<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>w', ':BufferClose<CR>', { noremap = true, silent = true })
 
 -- Switch to next/previous tab
 vim.api.nvim_set_keymap('n', '<TAB>', ':BufferNext<CR>', { noremap = true, silent = true })
@@ -43,13 +43,20 @@ vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
 -- Toggle nvim-tree
 vim.api.nvim_set_keymap('n', '<LEADER>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
--- LSP keybindings
+-- LSP
 vim.api.nvim_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gr', ':lua vim.lsp.buf.references()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', ':lua vim.lsp.buf.signature_help()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-n>', ':lua vim.lsp.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-p>', ':lua vim.lsp.diagnostic.goto_next()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>r', ':lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>a', ':lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<LEADER>a', ':lua vim.lsp.buf.range_code_action()<CR>', { noremap = true, silent = true })
 
+-- Completion
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.CompeComplete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.CompeComplete()", { expr = true })
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.CompeReverseComplete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.CompeReverseComplete()", { expr = true })
