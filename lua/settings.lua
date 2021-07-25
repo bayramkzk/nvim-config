@@ -19,4 +19,3 @@ vim.o.wrap = false
 -- Case-insensitive searching
 vim.o.ignorecase = true
 vim.o.smartcase = true
-
