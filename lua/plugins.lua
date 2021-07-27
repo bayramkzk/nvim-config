@@ -41,4 +41,7 @@ return require('packer').startup(function(use)
 
     -- Better lsp menus
     use { 'RishabhRD/nvim-lsputils', requires = 'RishabhRD/popfix' }
+    
+    -- Auto pair
+    use 'windwp/nvim-autopairs'
 end)
