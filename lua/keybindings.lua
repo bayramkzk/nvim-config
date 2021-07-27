@@ -9,6 +9,11 @@ vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
 
+vim.api.nvim_set_keymap('n', '<LEADER>h', '<C-w>h', { silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>j', '<C-w>j', { silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>k', '<C-w>k', { silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>l', '<C-w>l', { silent = true })
+
 -- Close current tab
 vim.api.nvim_set_keymap('n', '<LEADER>w', ':BufferClose<CR>', { noremap = true, silent = true })
 
@@ -16,16 +21,20 @@ vim.api.nvim_set_keymap('n', '<LEADER>w', ':BufferClose<CR>', { noremap = true, 
 vim.api.nvim_set_keymap('n', '<TAB>', ':BufferNext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferPrevious<CR>', { noremap = true, silent = true })
 
+-- Move current tab to next/previous
+vim.api.nvim_set_keymap('n', '<LEADER>]', ':BufferMoveNext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>[', ':BufferMovePrevious<CR>', { noremap = true, silent = true })
+
 -- Switch to nth tab
-vim.api.nvim_set_keymap('n', '<A-1>', ':BufferGoto 1<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<A-2>', ':BufferGoto 2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<A-3>', ':BufferGoto 3<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<A-4>', ':BufferGoto 4<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<A-5>', ':BufferGoto 5<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<A-6>', ':BufferGoto 6<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<A-7>', ':BufferGoto 7<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<A-8>', ':BufferGoto 8<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<A-9>', ':BufferGoto 9<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>1', ':BufferGoto 1<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>2', ':BufferGoto 2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>3', ':BufferGoto 3<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>4', ':BufferGoto 4<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>5', ':BufferGoto 5<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>6', ':BufferGoto 6<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>7', ':BufferGoto 7<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>8', ':BufferGoto 8<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>9', ':BufferGoto 9<CR>', { noremap = true, silent = true })
 
 -- Copy/cut/paste to/from system clipboard
 vim.api.nvim_set_keymap('n', '<LEADER>p', '"+p', { noremap = true })
