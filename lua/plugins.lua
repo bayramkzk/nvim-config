@@ -38,4 +38,7 @@ return require('packer').startup(function(use)
 
     -- Completion
     use 'hrsh7th/nvim-compe'
+
+    -- Better lsp menus
+    use { 'RishabhRD/nvim-lsputils', requires = 'RishabhRD/popfix' }
 end)
