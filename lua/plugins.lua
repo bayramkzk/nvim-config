@@ -53,4 +53,7 @@ return require('packer').startup(function(use)
         'nvim-lua/plenary.nvim'
       }
     }
+
+    -- Comment
+    use "terrortylor/nvim-comment"
 end)
