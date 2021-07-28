@@ -3,4 +3,4 @@
 - terrortylor/nvim-comment
 - fuzzy file finder
 - Snippets
-- Git integration
+- Add custom icons for warnings
