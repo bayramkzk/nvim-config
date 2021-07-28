@@ -44,6 +44,7 @@ return require('packer').startup(function(use)
 
     -- Auto pair
     use 'windwp/nvim-autopairs'
+    use 'windwp/nvim-ts-autotag'
 
     -- Git gutter indication
     use {
