@@ -63,6 +63,8 @@ vim.api.nvim_set_keymap('n', '<C-p>', ':lua vim.lsp.diagnostic.goto_next()<CR>',
 vim.api.nvim_set_keymap('n', '<LEADER>r', ':lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<LEADER>a', ':lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<LEADER>a', ':lua vim.lsp.buf.range_code_action()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>f', ':lua vim.lsp.buf.formatting()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<LEADER>f', ':lua vim.lsp.buf.range_formatting()<CR>', { noremap = true, silent = true })
 
 -- Completion
 vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.CompeComplete()", { expr = true })
