@@ -12,6 +12,8 @@ vim.o.termguicolors = true
 vim.cmd[[colorscheme slate]]
 
 --[[ PLUGINS ]]--
+vim.cmd 'autocmd BufWritePost init.lua PackerCompile'
+
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
