@@ -6,10 +6,9 @@ vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.expandtab = true
 vim.o.mouse = "a"
+vim.o.termguicolors = true
 
 --[[ THEME ]]--
-vim.o.termguicolors = true
-vim.cmd[[colorscheme slate]]
 
 --[[ PLUGINS ]]--
 vim.cmd 'autocmd BufWritePost init.lua PackerCompile'
@@ -64,6 +63,7 @@ require('packer').startup(function(use)
             require('lualine').setup {
                 options = {
                     icons_enabled = true,
+                    colorscheme = "tokyonight",
                     disabled_filetypes = {}
                 },
                 sections = {
@@ -99,6 +99,16 @@ require('packer').startup(function(use)
                 },
                 diagnostics = "nvim_lsp"
             }
+        end
+    }
+
+    -- Colorscheme
+    use {
+        'folke/tokyonight.nvim',
+        config = function()
+            vim.g.tokyonight_style = "storm"
+            vim.g.tokyonight_italic_keywords = false
+            vim.cmd[[colorscheme tokyonight]]
         end
     }
 end)
