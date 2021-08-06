@@ -63,7 +63,7 @@ require('packer').startup(function(use)
             require('lualine').setup {
                 options = {
                     icons_enabled = true,
-                    colorscheme = "tokyonight",
+                    theme = "tokyonight",
                     disabled_filetypes = {}
                 },
                 sections = {
