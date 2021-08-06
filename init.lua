@@ -87,4 +87,18 @@ require('packer').startup(function(use)
             }
         end
     }
+
+    -- Buffer line
+    use {
+        'akinsho/nvim-bufferline.lua',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function()
+            require("bufferline").setup{
+                options = {
+                    offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "left"}},
+                },
+                diagnostics = "nvim_lsp"
+            }
+        end
+    }
 end)
