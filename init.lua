@@ -7,8 +7,8 @@ vim.o.softtabstop = 4
 vim.o.expandtab = true
 vim.o.mouse = "a"
 vim.o.termguicolors = true
-
---[[ THEME ]]--
+vim.o.list = true
+vim.o.listchars = "tab:› ,trail:-,extends:>,precedes:<,space:·"
 
 --[[ PLUGINS ]]--
 vim.cmd 'autocmd BufWritePost init.lua PackerCompile'
