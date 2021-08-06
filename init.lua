@@ -9,6 +9,8 @@ vim.o.mouse = "a"
 vim.o.termguicolors = true
 vim.o.list = true
 vim.o.listchars = "tab:› ,trail:-,extends:>,precedes:<,space:·"
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 --[[ PLUGINS ]]--
 vim.cmd 'autocmd BufWritePost init.lua PackerCompile'
