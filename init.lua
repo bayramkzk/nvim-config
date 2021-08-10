@@ -101,6 +101,7 @@ require('packer').startup(function(use)
                 options = {
                     offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "left"}},
                 },
+                separator_style = "padded_slant",
                 diagnostics = "nvim_lsp"
             }
         end
@@ -236,6 +237,23 @@ require('packer').startup(function(use)
             end
         end
     }
+
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        config = function ()
+            require('nvim-treesitter.configs').setup {
+                highlight = {
+                    enable = true,
+                    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+                    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+                    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+                    -- Instead of true it can also be a list of languages
+                    additional_vim_regex_highlighting = false,
+                },
+            }
+        end
+    }
 end)
 
 --[[ KEYBINDINGS ]]--
@@ -266,16 +284,8 @@ vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferLineCyclePrev<CR>', { noremap = 
 vim.api.nvim_set_keymap('n', '<LEADER>]', ':BufferMoveNext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<LEADER>[', ':BufferMovePrevious<CR>', { noremap = true, silent = true })
 
--- Switch to nth tab
+-- Jump to tab
 vim.api.nvim_set_keymap('n', '<LEADER>1', ':BufferGoto 1<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<LEADER>2', ':BufferGoto 2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<LEADER>3', ':BufferGoto 3<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<LEADER>4', ':BufferGoto 4<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<LEADER>5', ':BufferGoto 5<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<LEADER>6', ':BufferGoto 6<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<LEADER>7', ':BufferGoto 7<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<LEADER>8', ':BufferGoto 8<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<LEADER>9', ':BufferGoto 9<CR>', { noremap = true, silent = true })
 
 -- Copy/cut/paste to/from system clipboard
 vim.api.nvim_set_keymap('n', '<LEADER>p', '"+p', { noremap = true })
