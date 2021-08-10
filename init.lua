@@ -16,6 +16,7 @@ vim.o.smartcase = true
 vim.cmd 'autocmd BufWritePost init.lua PackerCompile'
 
 require('packer').startup(function(use)
+    -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
     -- File explorer
@@ -170,6 +171,7 @@ require('packer').startup(function(use)
         end
     }
 
+    -- Completion
     use {
         'hrsh7th/nvim-compe',
         config = function()
@@ -238,6 +240,7 @@ require('packer').startup(function(use)
         end
     }
 
+    -- Treesitter for better syntax highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
@@ -255,6 +258,7 @@ require('packer').startup(function(use)
         end
     }
 
+    -- Auto closing pairs
     use {
         'windwp/nvim-autopairs',
         config = function ()
@@ -262,6 +266,7 @@ require('packer').startup(function(use)
         end
     }
 
+    -- Auto closing tags
     use {
         'windwp/nvim-ts-autotag',
         config = function ()
