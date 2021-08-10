@@ -290,7 +290,7 @@ require('packer').startup(function(use)
         end
     }
 
-        -- Git gutter indication
+    -- Git gutter indication
     use {
         'lewis6991/gitsigns.nvim',
         requires = 'nvim-lua/plenary.nvim',
