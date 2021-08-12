@@ -11,6 +11,7 @@ vim.o.list = true
 vim.o.listchars = "tab:› ,trail:-,extends:>,precedes:<,space:·"
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.o.showmode = false
 
 --[[ PLUGINS ]]--
 vim.cmd 'autocmd BufWritePost init.lua PackerCompile'
