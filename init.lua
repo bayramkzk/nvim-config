@@ -339,7 +339,7 @@ vim.api.nvim_set_keymap('n', '<LEADER>]', ':BufferMoveNext<CR>', { noremap = tru
 vim.api.nvim_set_keymap('n', '<LEADER>[', ':BufferMovePrevious<CR>', { noremap = true, silent = true })
 
 -- Jump to tab
-vim.api.nvim_set_keymap('n', '<LEADER>1', ':BufferGoto 1<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER><TAB>', ':BufferLinePick<CR>', { noremap = true, silent = true })
 
 -- Copy/cut/paste to/from system clipboard
 vim.api.nvim_set_keymap('n', '<LEADER>p', '"+p', { noremap = true })
