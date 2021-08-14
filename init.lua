@@ -379,13 +379,9 @@ require('packer').startup(function(use)
                     stdin = true
                 },
                 luafmt = {
-                    function()
-                      return {
-                        exe = "luafmt",
-                        args = {"--indent-count", 2, "--stdin"},
-                        stdin = true
-                      }
-                    end
+                    exe = "luafmt",
+                    args = {"--indent-count", 2, "--stdin"},
+                    stdin = true
                 },
                 clang_format = {
                     exe = "clang-format",
