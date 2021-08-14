@@ -363,6 +363,55 @@ require('packer').startup(function(use)
             require'hop'.setup {keys = 'etovxqpdygfblzhckisuran' }
         end
     }
+
+    use {
+        'mhartington/formatter.nvim',
+        config = function ()
+            local formatter_tables = {
+                prettier = {
+                    exe = "prettier",
+                    args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), '--single-quote'},
+                    stdin = true
+                },
+                rustfmt = {
+                    exe = "rustfmt",
+                    args = {"--emit=stdout"},
+                    stdin = true
+                },
+                luafmt = {
+                    function()
+                      return {
+                        exe = "luafmt",
+                        args = {"--indent-count", 2, "--stdin"},
+                        stdin = true
+                      }
+                    end
+                },
+                clang_format = {
+                    exe = "clang-format",
+                    args = {"--assume-filename", vim.api.nvim_buf_get_name(0)},
+                    stdin = true,
+                    cwd = vim.fn.expand('%:p:h')  -- Run clang-format in cwd of the file.
+                }
+            }
+
+            require('formatter').setup({
+                logging = false,
+                filetype = {
+                    javascript = { function() return formatter_tables["prettier"] end },
+                    html = { function() return formatter_tables["prettier"] end },
+                    css = { function() return formatter_tables["prettier"] end },
+                    json = { function() return formatter_tables["prettier"] end },
+                    yaml = { function() return formatter_tables["prettier"] end },
+                    markdown = { function() return formatter_tables["prettier"] end },
+                    c = { function() return formatter_tables["clang_format"] end },
+                    cpp = { function() return formatter_tables["clang_format"] end },
+                    rust = { function() return formatter_tables["rustfmt"] end },
+                    lua = { function() return formatter_tables["luafmt"] end },
+                }
+            })
+        end
+    }
 end)
 
 --[[ KEYBINDINGS ]]--
@@ -431,8 +480,10 @@ vim.api.nvim_set_keymap('n', '<C-p>', ':lua vim.lsp.diagnostic.goto_next()<CR>',
 vim.api.nvim_set_keymap('n', '<LEADER>r', ':lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<LEADER>a', ':lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<LEADER>a', ':lua vim.lsp.buf.range_code_action()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<LEADER>f', ':lua vim.lsp.buf.formatting()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<LEADER>f', ':lua vim.lsp.buf.range_formatting()<CR>', { noremap = true, silent = true })
+
+-- Formatting
+vim.api.nvim_set_keymap('n', '<LEADER>f', ':Format<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<LEADER>f', ':Format<CR>', { noremap = true, silent = true })
 
 -- Completion
 vim.api.nvim_set_keymap("i", "<TAB>", "v:lua.CompeComplete()", { expr = true })
