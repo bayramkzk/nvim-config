@@ -94,19 +94,11 @@ require('packer').startup(function(use)
         end
     }
 
-    -- Buffer line
+    -- Tab line
     use {
-        'akinsho/nvim-bufferline.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = function()
-            require("bufferline").setup{
-                options = {
-                    offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "left"}},
-                },
-                separator_style = "padded_slant",
-                diagnostics = "nvim_lsp"
-            }
-        end
+        'romgrk/barbar.nvim',
+        requires = 'kyazdani42/nvim-web-devicons'
+        -- TODO: Add bufferline offset for nvim-tree
     }
 
     -- Colorscheme
@@ -394,15 +386,23 @@ vim.api.nvim_set_keymap('n', '<LEADER>l', '<C-w>l', { silent = true })
 vim.api.nvim_set_keymap('n', '<LEADER>w', ':BufferClose<CR>', { noremap = true, silent = true })
 
 -- Switch to next/previous tab
-vim.api.nvim_set_keymap('n', '<TAB>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<TAB>', ':BufferNext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferPrevious<CR>', { noremap = true, silent = true })
 
 -- Move current tab to next/previous
 vim.api.nvim_set_keymap('n', '<LEADER>]', ':BufferMoveNext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<LEADER>[', ':BufferMovePrevious<CR>', { noremap = true, silent = true })
 
 -- Jump to tab
-vim.api.nvim_set_keymap('n', '<LEADER><TAB>', ':BufferLinePick<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>1', ':BufferGoto1<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>2', ':BufferGoto2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>3', ':BufferGoto3<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>4', ':BufferGoto4<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>5', ':BufferGoto5<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>6', ':BufferGoto6<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>7', ':BufferGoto7<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>8', ':BufferGoto8<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LEADER>9', ':BufferGoto9<CR>', { noremap = true, silent = true })
 
 -- Copy/cut/paste to/from system clipboard
 vim.api.nvim_set_keymap('n', '<LEADER>p', '"+p', { noremap = true })
