@@ -361,6 +361,16 @@ require('packer').startup(function(use)
             require('nvim_comment').setup()
         end
     }
+
+    -- Jumper
+    use {
+        'phaazon/hop.nvim',
+        as = 'hop',
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require'hop'.setup {keys = 'etovxqpdygfblzhckisuran' }
+        end
+    }
 end)
 
 --[[ KEYBINDINGS ]]--
@@ -433,3 +443,6 @@ vim.api.nvim_set_keymap("s", "<S-TAB>", "v:lua.CompeReverseComplete()", { expr =
 -- Telescope
 vim.api.nvim_set_keymap("n", "<LEADER><LEADER>", ":Telescope find_files<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<LEADER>gc", ":Telescope git_commits<CR>", { noremap = true, silent = true })
+
+-- Jumper
+vim.api.nvim_set_keymap("n", "<LEADER>j", ":HopWord<CR>", { noremap = true, silent = true })
