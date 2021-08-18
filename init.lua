@@ -495,11 +495,14 @@ vim.api.nvim_set_keymap("n", "<LEADER>9", ":BufferGoto9<CR>", {noremap = true, s
 -- Copy/cut/paste to/from system clipboard
 vim.api.nvim_set_keymap("n", "<LEADER>p", '"+p', {noremap = true})
 vim.api.nvim_set_keymap("v", "<LEADER>p", '"+p', {noremap = true})
+vim.api.nvim_set_keymap("n", "<LEADER>P", '"+P', {noremap = true})
+vim.api.nvim_set_keymap("v", "<LEADER>P", '"+P', {noremap = true})
 vim.api.nvim_set_keymap("n", "<LEADER>y", '"+yy', {noremap = true})
 vim.api.nvim_set_keymap("v", "<LEADER>y", '"+y', {noremap = true})
 vim.api.nvim_set_keymap("n", "<LEADER>d", '"+dd', {noremap = true})
 vim.api.nvim_set_keymap("v", "<LEADER>d", '"+d', {noremap = true})
-vim.api.nvim_set_keymap("v", "<LEADER>x", '"+x', {noremap = true})
+vim.api.nvim_set_keymap("n", "<LEADER>D", '"+D', {noremap = true})
+vim.api.nvim_set_keymap("v", "<LEADER>D", '"+D', {noremap = true})
 
 -- Reselect selected lines after incrementing/decrementing indent level
 vim.api.nvim_set_keymap("v", "<", "<gv", {noremap = true, silent = true})
@@ -529,6 +532,7 @@ vim.api.nvim_set_keymap("i", "<TAB>", "v:lua.CompeComplete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<TAB>", "v:lua.CompeComplete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-TAB>", "v:lua.CompeReverseComplete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-TAB>", "v:lua.CompeReverseComplete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm('<CR>')", {expr = true, silent = true, noremap = true})
 
 -- Telescope
 vim.api.nvim_set_keymap("n", "<LEADER><LEADER>", ":Telescope find_files<CR>", {noremap = true, silent = true})
