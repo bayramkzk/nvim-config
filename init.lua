@@ -203,31 +203,43 @@ require("packer").startup(
             treesitter = true
           }
         }
+      end
+    }
 
-        local function replace_termcode(str)
+    -- Snippets
+    use {
+      "L3MON4D3/LuaSnip",
+      config = function()
+        local luasnip = require("luasnip")
+
+        local t = function(str)
           return vim.api.nvim_replace_termcodes(str, true, true, true)
         end
 
-        local function check_backspace()
+        local check_backspace = function()
           local col = vim.fn.col(".") - 1
           return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
         end
 
-        function CompeComplete()
+        _G.tab_complete = function()
           if vim.fn.pumvisible() == 1 then
-            return replace_termcode "<C-n>"
+            return t "<C-n>"
+          elseif luasnip.expand_or_jumpable() then
+            return t "<Plug>luasnip-expand-or-jump"
           elseif check_backspace() then
-            return replace_termcode "<Tab>"
+            return t "<Tab>"
           else
             return vim.fn["compe#complete"]()
           end
         end
 
-        function CompeReverseComplete()
+        _G.s_tab_complete = function()
           if vim.fn.pumvisible() == 1 then
-            return replace_termcode "<C-p>"
+            return t "<C-p>"
+          elseif luasnip.jumpable(-1) then
+            return t "<Plug>luasnip-jump-prev"
           else
-            return replace_termcode "<S-Tab>"
+            return t "<S-Tab>"
           end
         end
       end
@@ -528,11 +540,12 @@ vim.api.nvim_set_keymap("n", "<LEADER>f", ":Format<CR>", {noremap = true, silent
 vim.api.nvim_set_keymap("v", "<LEADER>f", ":Format<CR>", {noremap = true, silent = true})
 
 -- Completion
-vim.api.nvim_set_keymap("i", "<TAB>", "v:lua.CompeComplete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<TAB>", "v:lua.CompeComplete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-TAB>", "v:lua.CompeReverseComplete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-TAB>", "v:lua.CompeReverseComplete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<TAB>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<TAB>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-TAB>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-TAB>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm('<CR>')", {expr = true, silent = true, noremap = true})
+vim.api.nvim_set_keymap("i", "<C-SPACE>", "compe#complete()", {expr = true})
 
 -- Telescope
 vim.api.nvim_set_keymap("n", "<LEADER><LEADER>", ":Telescope find_files<CR>", {noremap = true, silent = true})
