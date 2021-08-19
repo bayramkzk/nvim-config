@@ -119,6 +119,8 @@ require("packer").startup(
       "neovim/nvim-lspconfig",
       config = function()
         local lspconfig = require("lspconfig")
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
 
         -- Typescript/Javascript language server [typescript-language-server]
         lspconfig.tsserver.setup {}
@@ -152,6 +154,16 @@ require("packer").startup(
           }
         }
 
+        -- HTML language server [vscode-langservers-extracted]
+        require "lspconfig".html.setup {
+          capabilities = capabilities
+        }
+
+        -- CSS language server [vscode-langservers-extracted]
+        require "lspconfig".cssls.setup {
+          capabilities = capabilities
+        }
+
         -- JSON language server [vscode-langservers-extracted]
         lspconfig.jsonls.setup {
           commands = {
@@ -162,6 +174,9 @@ require("packer").startup(
             }
           }
         }
+
+        -- TailwindCSS language server [tailwindcss-language-server]
+        lspconfig.tailwindcss.setup {}
       end
     }
 
