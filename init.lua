@@ -415,7 +415,7 @@ require("packer").startup(
         local formatter_tables = {
           prettier = {
             exe = "prettier",
-            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote"},
+            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
             stdin = true
           },
           rustfmt = {
@@ -436,63 +436,30 @@ require("packer").startup(
           }
         }
 
-        require("formatter").setup(
-          {
-            logging = false,
-            filetype = {
-              javascript = {
-                function()
-                  return formatter_tables["prettier"]
-                end
-              },
-              html = {
-                function()
-                  return formatter_tables["prettier"]
-                end
-              },
-              css = {
-                function()
-                  return formatter_tables["prettier"]
-                end
-              },
-              json = {
-                function()
-                  return formatter_tables["prettier"]
-                end
-              },
-              yaml = {
-                function()
-                  return formatter_tables["prettier"]
-                end
-              },
-              markdown = {
-                function()
-                  return formatter_tables["prettier"]
-                end
-              },
-              c = {
-                function()
-                  return formatter_tables["clang_format"]
-                end
-              },
-              cpp = {
-                function()
-                  return formatter_tables["clang_format"]
-                end
-              },
-              rust = {
-                function()
-                  return formatter_tables["rustfmt"]
-                end
-              },
-              lua = {
-                function()
-                  return formatter_tables["luafmt"]
-                end
-              }
-            }
+        local function lambda(key)
+          return function()
+            return formatter_tables[key]
+          end
+        end
+
+        require("formatter").setup {
+          logging = true,
+          filetype = {
+            javascript = {lambda("prettier")},
+            javascriptreact = {lambda("prettier")},
+            typescript = {lambda("prettier")},
+            typescriptreact = {lambda("prettier")},
+            html = {lambda("prettier")},
+            css = {lambda("prettier")},
+            json = {lambda("prettier")},
+            yaml = {lambda("prettier")},
+            markdown = {lambda("prettier")},
+            c = {lambda("clang_format")},
+            cpp = {lambda("clang_format")},
+            rust = {lambda("rustfmt")},
+            lua = {lambda("luafmt")}
           }
-        )
+        }
       end
     }
   end
