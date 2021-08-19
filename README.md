@@ -1,10 +1,9 @@
-My NeoVim <=0.5 config mostly written in lua.
+My NeoVim config mostly written in lua. Requires at least NoeVim version 0.5.
 
 ## Usage
-- Clone the repo to your nvim config folder of your OS
-- Install plugins by running `:PackerInstall`
-- Install and compile TreeSitter parsers for languages of your choice by running `:TSInstall <lang>` for better syntax highlighting
-  - You can use `:TSInstall maintained` to install *all* maintained parsers
+- Clone the repo to your nvim config folder of your OS.
+- Install plugins by running `:PackerInstall`.
+- Install and compile TreeSitter parsers for languages of your choice by running `:TSInstall <lang>` for better syntax highlighting. You can also use `:TSInstall maintained` to install *all* maintained parsers.
 - Install LSP clients of your choice using yarn/npm (or in any other way) and make sure they are in PATH. Currently configured ones:
   - `typescript-language-server` for javascript, typescript
   - `pyright` for python
@@ -31,6 +30,7 @@ My NeoVim <=0.5 config mostly written in lua.
 
 ## TODO
 - Improve README text and add images
+- Customize completion type and lsp symbol type icons
 - Add an offset to tab line (barbar) for file explorer (nvim-tree)
 - Add a plugin for surrounding selected text
 
