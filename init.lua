@@ -212,7 +212,7 @@ require("packer").startup(
       end
     }
 
-    -- Snippets
+    -- Snippet support
     use {
       "L3MON4D3/LuaSnip",
       config = function()
@@ -248,6 +248,14 @@ require("packer").startup(
             return t "<S-Tab>"
           end
         end
+      end
+    }
+
+    -- Predefined snippets
+    use {
+      "rafamadriz/friendly-snippets",
+      config = function()
+        require("luasnip.loaders.from_vscode").lazy_load {}
       end
     }
 
