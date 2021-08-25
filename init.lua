@@ -208,15 +208,11 @@ require("packer").startup(
             min_height = 1
           },
           source = {
-            path = true,
-            buffer = true,
-            calc = true,
+            path = {kind = "/", true},
+            buffer = {kind = "﬘", true},
+            luasnip = {kind = "﬌", true},
             nvim_lsp = true,
-            nvim_lua = true,
-            spell = true,
-            tags = true,
-            luasnip = true,
-            treesitter = true
+            nvim_lua = true
           }
         }
 
@@ -225,6 +221,17 @@ require("packer").startup(
           local hl = "LspDiagnosticsSign" .. type
           vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = ""})
         end
+      end
+    }
+
+    -- Lsp pictograms
+    use {
+      "onsails/lspkind-nvim",
+      config = function()
+        require("lspkind").init {
+          with_text = true,
+          preset = "default"
+        }
       end
     }
 
