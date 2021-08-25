@@ -29,8 +29,9 @@ My NeoVim config mostly written in lua. Requires at least NoeVim version 0.5.
 - Comment lines (nvim-comment)
 
 ## TODO
-- Improve README text and add images
-- Customize completion type and lsp symbol type icons
+- Support :LspInstall to make it easy to install new LSP servers
+- Make LSP diagnostic warnings less noticable and customize diagnostic icons
 - Add an offset to tab line (barbar) for file explorer (nvim-tree)
 - Add a plugin for surrounding selected text
+- Improve README text and add images
 
