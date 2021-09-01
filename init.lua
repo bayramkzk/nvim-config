@@ -15,6 +15,7 @@ vim.o.smartcase = true
 vim.o.showmode = false
 
 -- [[ COLORSCHEME ]] --
+
 local colorscheme = "gruvbox"
 vim.cmd("colorscheme " .. colorscheme)
 
@@ -431,6 +432,7 @@ require("packer").startup(
       end
     }
 
+    -- Formatter
     use {
       "mhartington/formatter.nvim",
       config = function()
