@@ -106,8 +106,13 @@ require("packer").startup(
     -- Tab line
     use {
       "romgrk/barbar.nvim",
-      requires = "kyazdani42/nvim-web-devicons"
+      requires = "kyazdani42/nvim-web-devicons",
       -- TODO: Add bufferline offset for nvim-tree
+      config = function ()
+        vim.g.bufferline = {
+          auto_hide = true
+        }
+      end
     }
 
     -- Colorscheme
