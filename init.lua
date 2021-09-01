@@ -77,7 +77,9 @@ require("packer").startup(
           options = {
             icons_enabled = true,
             theme = colorscheme,
-            disabled_filetypes = {}
+            disabled_filetypes = {},
+            section_separators = "",
+            component_separators = ""
           },
           sections = {
             lualine_a = {"mode"},
