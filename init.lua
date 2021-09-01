@@ -14,6 +14,10 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.showmode = false
 
+-- [[ COLORSCHEME ]] --
+local colorscheme = "gruvbox"
+vim.cmd("colorscheme " .. colorscheme)
+
 -- [[ PLUGINS ]] --
 
 vim.cmd "autocmd BufWritePost init.lua PackerCompile"
@@ -72,7 +76,7 @@ require("packer").startup(
         require("lualine").setup {
           options = {
             icons_enabled = true,
-            theme = "tokyonight",
+            theme = colorscheme,
             disabled_filetypes = {}
           },
           sections = {
@@ -110,8 +114,11 @@ require("packer").startup(
       config = function()
         vim.g.tokyonight_style = "storm"
         vim.g.tokyonight_italic_keywords = false
-        vim.cmd [[colorscheme tokyonight]]
       end
+    }
+    use {
+      "ellisonleao/gruvbox.nvim",
+      requires = "rktjmp/lush.nvim"
     }
 
     -- Language server protocol
