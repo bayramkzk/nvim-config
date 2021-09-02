@@ -47,6 +47,7 @@ require("packer").startup(
     -- Install LSP clients easily
     use {
       "kabouzeid/nvim-lspinstall",
+      requires = "neovim/nvim-lspconfig",
       config = function()
         require("plugins/lspinstall-cf")
       end
@@ -79,6 +80,7 @@ require("packer").startup(
     -- Predefined snippets
     use {
       "rafamadriz/friendly-snippets",
+      requires = "L3MON4D3/LuaSnip",
       config = function()
         require("plugins/friendlysnippets-cf")
       end
