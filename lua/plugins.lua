@@ -42,10 +42,13 @@ require("packer").startup(
     }
 
     -- Language server protocol
+    use "neovim/nvim-lspconfig"
+
+    -- Install LSP clients easily
     use {
-      "neovim/nvim-lspconfig",
+      "kabouzeid/nvim-lspinstall",
       config = function()
-        require("plugins/lspconfig-cf")
+        require("plugins/lspinstall-cf")
       end
     }
 
