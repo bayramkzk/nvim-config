@@ -1,0 +1,14 @@
+_G.colorscheme = "gruvbox"
+vim.o.number = true
+vim.o.relativenumber = false
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
+vim.o.mouse = "a"
+vim.o.termguicolors = true
+vim.o.list = true
+vim.o.listchars = "tab:› ,trail:-,extends:>,precedes:<,space:·"
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.showmode = false
