@@ -1,8 +1,8 @@
 local formatter_tables = {
   prettier = {
     exe = "prettier",
-    args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
-    stdin = true
+    args = {"-w", vim.api.nvim_buf_get_name(0)},
+    stdin = false
   },
   rustfmt = {
     exe = "rustfmt",
