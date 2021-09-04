@@ -155,6 +155,14 @@ require("packer").startup(
       end
     }
 
+    -- Indent guides
+    use {
+      "lukas-reineke/indent-blankline.nvim",
+      config = function()
+        require("plugins/indentblankline-cf")
+      end
+    }
+
     -- Formatter
     use {
       "mhartington/formatter.nvim",
