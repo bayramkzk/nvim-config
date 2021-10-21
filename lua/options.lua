@@ -1,4 +1,4 @@
-_G.colorscheme = "gruvbox"
+_G.colorscheme = "tokyonight"
 vim.o.number = true
 vim.o.relativenumber = false
 vim.o.shiftwidth = 4
