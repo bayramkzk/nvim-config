@@ -82,6 +82,7 @@ vim.api.nvim_set_keymap("i", "<C-SPACE>", "compe#complete()", {expr = true})
 -- Telescope
 vim.api.nvim_set_keymap("n", "<LEADER><LEADER>", ":Telescope find_files<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<LEADER>gc", ":Telescope git_commits<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<LEADER>s", ":Telescope lsp_document_symbols<CR>", {noremap = true, silent = true})
 
 -- Jumper
 vim.api.nvim_set_keymap("n", "<LEADER>j", ":HopWord<CR>", {noremap = true, silent = true})
