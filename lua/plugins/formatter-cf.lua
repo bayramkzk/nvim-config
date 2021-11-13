@@ -19,6 +19,14 @@ local formatter_tables = {
     args = {"--assume-filename", vim.api.nvim_buf_get_name(0)},
     stdin = true,
     cwd = vim.fn.expand("%:p:h") -- Run clang-format in cwd of the file.
+  },
+  autopep8 = {
+    exe = "python3 -m autopep8",
+    args = {
+      "--in-place --aggressive --aggressive",
+      vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
+    },
+    stdin = false
   }
 }
 
@@ -43,6 +51,7 @@ require("formatter").setup {
     c = {get_formatter("clang_format")},
     cpp = {get_formatter("clang_format")},
     rust = {get_formatter("rustfmt")},
-    lua = {get_formatter("luafmt")}
+    lua = {get_formatter("luafmt")},
+    python = {get_formatter("autopep8")}
   }
 }
